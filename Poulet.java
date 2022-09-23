@@ -5,21 +5,24 @@ class Poulet extends Volaille {
     /**
      * @param prixKilo Le prix au kilo.
      */
-    static double prixKilo;
+    static double prixKilo = PRIXKGPOULET;
     /**
      * @param poidsAbattage Poids min pour abattage
      */
     static double poidsAbattage = 1.2;
 
+    boolean isOK(){
+        return poids >= poidsAbattage;
+    }
+
     /**
      * Instantiates a new Poulet.
      *
-     * @param id identité d'un poulet
      * @param p  poids d'un poulet
-     * @param pk prix au kilo d'un poulet
+     *
      */
-    Poulet(int id, double p, double pk){
-        super(id, p, pk);
+    Poulet(double p){
+        super( p);
     }
 
     /**
@@ -35,7 +38,7 @@ class Poulet extends Volaille {
     /**
      * Calcul du prix d'un poulet
      * En fonction du prix au kilo du jour
-     * @return
+     * @return prix d'une volaille pour un jour donné
      */
     double prix(){
         return poids * prixKilo;

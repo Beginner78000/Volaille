@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 /**
  * Class Elevage.
@@ -38,19 +39,19 @@ public class Elevage {
     }
 
     /**
-     * Change poids après abattage.
+     * Changement du poids d'une volaille.
      *
      * @param id id de la volaille souhaitée
-     * @param cp modification du prix de la volaille
+     * @param cp modification du poids de la volaille recherché
      */
     void changePoids(int id, double cp){
         chercher(id).changePoids(cp);
     }
 
     /**
-     * Calcul du poids abattage.
+     * Vérification du poids de l'ensemble des volailles
      *
-     * @return poids après abattage
+     * @return poids modifié
      */
     double evalPoidsAbattage(){
         double pOk = 0;
@@ -67,12 +68,11 @@ public class Elevage {
      *
      * @return l'ensemble des volailles trié par poids
      */
-    Volaille[] triParPoids() {
+    Volaille[] triParArrivee() {
         Volaille[] res = new Volaille[100];
         int nb = 0;
         int i = 0;
         while (i < nbVolailles) {
-            Terminal.ecrireChar('+');
             if (tab[i].isOK()) {
                 res[nb] = tab[i];
                 nb++;
@@ -86,12 +86,14 @@ public class Elevage {
 
     }
 
+    DecimalFormat df = new DecimalFormat("###.##");
+
     /**
      * Afficher toutes les infos de chaque volaille
      */
     void afficher(){
         for(int i = 0; i < nbVolailles; i++){
-            Terminal.ecrireStringln(tab[i].identite+ ". "+tab[i].poids+ " / "+tab[i].prix());
+            Terminal.ecrireStringln(tab[i].identite+ ". "+tab[i].poids+ " / "+ df.format(tab[i].prix()));
         }
     }
 

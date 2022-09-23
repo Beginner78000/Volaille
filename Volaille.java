@@ -1,37 +1,34 @@
 /**
  * Class Volaille.
  */
-public class Volaille {
+abstract class Volaille {
     /**
      * id d'une volaille
      */
-    public int identite;
+    static int lastId = 0;
+    static double PRIXKGCANARD = 8.00;
+    static double PRIXKGPOULET = 12;
+    int identite;
     /**
      * poids d'une volaille
      */
     double poids;
-    /**
-     * Prix au kilo.
-     */
-    double prixKilo;
 
     /**
      * Instantiates a new Volaille.
      *
-     * @param id l'identifiant unique d'une volaille
      * @param p  le poids d'une volaille
-     * @param pk le prix au kilo d'une volaille
+     *
      */
-    Volaille(int id, double p, double pk ){
-        this.identite = id;
-        this.poids = p;
-        this.prixKilo = pk;
+    Volaille(double p){
+        identite = lastId++;
+        poids = p;
     }
 
     /**
      * Modification du poids.
      *
-     * @param cp poids après abattage
+     * @param cp poids après évolution de la volaille
      */
     public void changePoids(double cp){
         poids = cp;
@@ -40,16 +37,14 @@ public class Volaille {
     /**
      * Prix d'une volaille
      *
-     * @return
+     * @return retourne pok
      */
-    double prix(){
-        return 0;
-    }
+    abstract double prix();
 
     /**
      * Boolean
      *
      * @return return false
      */
-    public boolean isOK(){return false;}
+    boolean isOK(){return false;}
 }

@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 /**
  * Class Canard.
  */
@@ -5,17 +7,16 @@ public class Canard extends Volaille {
     /**
      * Prix au kilo.
      */
-    static double prixKilo;
+    static double prixKilo = PRIXKGCANARD;
 
     /**
      * Instantiates a new Canard.
      *
-     * @param id the id
      * @param p  Le poids
-     * @param pk Le poids au kilo
+     *
      */
-    public Canard(int id, double p, double pk) {
-        super(id, p, pk);
+    public Canard(double p) {
+        super(p);
     }
 
     /**
