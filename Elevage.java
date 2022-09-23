@@ -1,14 +1,15 @@
+
 /**
  * Class Elevage.
  */
 public class Elevage {
     /**
-     * The Tab.
+     * Instantiate un tableau de volaille
      */
     Volaille[] tab = new Volaille[50];
 
     /**
-     * @param nbVolailles Représente le nb de volaille
+     * Représente le nb de volaille
      */
     int nbVolailles = 0;
 
@@ -59,7 +60,6 @@ public class Elevage {
             }
         }
         return pOk;
-        //return cp * ( 60.0 / 100.0 );
     }
 
     /**
